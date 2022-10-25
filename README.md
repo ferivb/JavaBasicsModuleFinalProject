@@ -1,4 +1,4 @@
-## Final Proyect
+## Final Project
 
 System to track my university classes, teachers and students. Each Teacher has a name, and
 a salary calculated by the following rules:
