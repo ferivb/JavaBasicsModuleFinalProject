@@ -9,4 +9,6 @@ public class PartTimeTeacher extends Professor{
         this.actualSalary = (this.baseSalary / 48) * activeHours;
         this.typeOfContract = "PartTime";
     }
+
+
 }

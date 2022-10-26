@@ -10,6 +10,7 @@ public class Course {
     private String name;
     private int classroom;
     private List<Student> registeredStudents;
+    private Professor professor;
 
     public Course(String name, int classroom) {
         this.id = counter;

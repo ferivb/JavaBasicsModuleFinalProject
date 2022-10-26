@@ -24,4 +24,49 @@ public class Professor {
         this.email = this.firstName + "." + this.lastName + this.id + "@university.edu";
         this.baseSalary = baseSalary;
     }
+
+    // -------------- GETTERS --------------
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public double getActualSalary() {
+        return this.actualSalary;
+    }
+
+    public String getTypeOfContract() {
+        return this.typeOfContract;
+    }
+
+    public List<Course> getCourses() {
+        return this.courses;
+    }
+
+    // ------------ METHODS -------------
+
+    public void addCourseToList(Course course){
+        this.courses.add(course);
+    }
+
+    public Course findCourse(int index){
+        return this.courses.get(index);
+    }
+
+    public void removeFromCourses(int index){
+        this.courses.remove(index);
+    }
+
 }
