@@ -2,7 +2,7 @@ package org.globant.data;
 
 import java.util.List;
 
-public class Professor {
+public abstract class Professor {
 
     private static int counter = 1;
 
@@ -11,7 +11,6 @@ public class Professor {
     private String lastName;
     private String email;
     protected double baseSalary;
-    protected double actualSalary;
     protected String typeOfContract;
     protected List<Course> courses;
 
@@ -43,10 +42,6 @@ public class Professor {
         return this.email;
     }
 
-    public double getActualSalary() {
-        return this.actualSalary;
-    }
-
     public String getTypeOfContract() {
         return this.typeOfContract;
     }
@@ -56,6 +51,8 @@ public class Professor {
     }
 
     // ------------ METHODS -------------
+
+    public abstract double calculateRealSalary();
 
     public void addCourseToList(Course course){
         this.courses.add(course);
