@@ -16,4 +16,53 @@ public class University {
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
     }
+
+    public void addProfessor(Professor professor){
+        this.teacherList.add(professor);
+    }
+
+    public void addStudent(Student student){
+        this.studentList.add(student);
+    }
+
+    public void addCourse(Course course){
+        this.courseList.add(course);
+    }
+
+    public Professor findProfessorById(int id) {
+        Professor professor = new Professor("null", "null", 0) {
+            @Override
+            public double calculateRealSalary() {
+                return 0;
+            }
+        };
+        Professor.resetCounter();
+        professor.setId(-1);
+
+        if (id > 0 && id < teacherList.size()) {
+            for (Professor value : teacherList) {
+                if (value.getId() == id) {
+                    professor = value;
+                }
+            }
+        }
+
+        return professor;
+    }
+
+    public Student findStudentById(int id){
+        Student student = new Student("null", 0);
+        student.setId(-1);
+        Student.resetCounter();
+
+        if (id > 0 && id < studentList.size()){
+            for (Student value : studentList) {
+                if (value.getId() == id) {
+                    student = value;
+                }
+            }
+        }
+
+        return student;
+    }
 }
