@@ -14,4 +14,28 @@ public class Student {
         this.id = counter;
         counter++;
     }
+
+    // ------------ GETTERS --------------
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    // ------------ SETTERS --------------
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static void resetCounter(){
+        counter--;
+    }
 }

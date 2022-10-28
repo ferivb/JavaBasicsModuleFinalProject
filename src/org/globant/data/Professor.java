@@ -2,7 +2,7 @@ package org.globant.data;
 
 import java.util.List;
 
-public class Professor {
+public abstract class Professor {
 
     private static int counter = 1;
 
@@ -11,9 +11,8 @@ public class Professor {
     private String lastName;
     private String email;
     protected double baseSalary;
-    protected double actualSalary;
     protected String typeOfContract;
-    protected List<Course> courses;
+    // protected List<Course> courses;  ---------- CREATE A METHOD FOR THIS -----------
 
 
     public Professor(String firstName, String lastName, double baseSalary) {
@@ -43,30 +42,37 @@ public class Professor {
         return this.email;
     }
 
-    public double getActualSalary() {
-        return this.actualSalary;
-    }
-
     public String getTypeOfContract() {
         return this.typeOfContract;
     }
 
-    public List<Course> getCourses() {
-        return this.courses;
+    // -------------- SETTERS --------------
+
+    public void setId(int id) {
+        this.id = id;
     }
+
+//    public List<Course> getCourses() {
+//        return this.courses;
+//    }
 
     // ------------ METHODS -------------
 
-    public void addCourseToList(Course course){
-        this.courses.add(course);
+    public static void resetCounter(){
+        counter--;
     }
+    public abstract double calculateRealSalary();
 
-    public Course findCourse(int index){
-        return this.courses.get(index);
-    }
-
-    public void removeFromCourses(int index){
-        this.courses.remove(index);
-    }
+//    public void addCourseToList(Course course){
+//        this.courses.add(course);
+//    }
+//
+//    public Course findCourse(int index){
+//        return this.courses.get(index);
+//    }
+//
+//    public void removeFromCourses(int index){
+//        this.courses.remove(index);
+//    }
 
 }
