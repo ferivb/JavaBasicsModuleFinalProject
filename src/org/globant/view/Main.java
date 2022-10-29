@@ -30,7 +30,7 @@ public class Main {
                     handleCourseMenu(myUniversity);
                     break;
                 case 3:
-                    handleStudentMenu();
+                    handleStudentMenu(myUniversity);
                     break;
                 case 4:
                     iterator = handleExit();
@@ -267,7 +267,10 @@ public class Main {
         int id = 1;
         while (id != 0){
             System.out.println("List of registered students:");
-            printAllStudents(university);
+            System.out.println("  ID  |\t\tNAME\t\t|\tAGE");
+            for(int i = 0; i < university.getStudentList().size(); i++) {
+                System.out.println(university.getStudentList().get(i));
+            }
             System.out.println(" ");
             System.out.println("Type the ID of the student you wish to enroll or 0 to go back");
             id = Reader.intScanner();
@@ -298,27 +301,24 @@ public class Main {
 
     // ***************** OPTION 3. STUDENTS ********************
 
-    public static void handleStudentMenu() {
+    public static void handleStudentMenu(University university) {
         boolean iterator = true;
 
         while (iterator) {
             int option;
 
             System.out.println("Welcome to the students menu, please choose an option:");
-            System.out.println(" 1. List All Students  |  2. Create a Student  | 3. Student Details  |  4. Go back");
+            System.out.println(" 1. List All Students  |  2. Create a Student  | 3. Go back");
 
             option = Reader.intScanner();
             switch (option) {
                 case 1:
-                    System.out.println("Create list students func");
+                    printAllStudents(university);
                     break;
                 case 2:
-                    System.out.println("Create create student func");
+                    createStudent(university);
                     break;
                 case 3:
-                    System.out.println("create student details func");
-                    break;
-                case 4:
                     iterator = handleExit();
                     break;
                 default:
@@ -328,10 +328,74 @@ public class Main {
     }
 
     public static void printAllStudents(University university){
-        System.out.println("  ID  |\t\tNAME\t\t|\tAGE");
-        for(int i = 0; i < university.getStudentList().size(); i++){
-            System.out.println(university.getStudentList().get(i));
+        boolean iterator = true;
+
+        while(iterator){
+            int id;
+            int counter = 0;
+            System.out.println("  ID  |\t\tNAME\t\t|\tAGE");
+            for(int i = 0; i < university.getStudentList().size(); i++){
+                System.out.println(university.getStudentList().get(i));
+            }
+            System.out.println("Type the ID of a student to see the classes they're enrolled in or 0 to go back:");
+            id = Reader.intScanner();
+            if (id > 0 && id <= university.getStudentList().size()){
+                for (int i = 0; i < university.getCourseList().size(); i++){
+                    if (university.confirmStudentEnrolled(id, i)){
+                        System.out.println(university.getCourseList().get(i).getName());
+                        counter++;
+                    }
+                }
+                if (counter == 0){
+                    System.out.println("Student is not enrolled in any class.");
+                }
+            } else if (id == 0) {
+                iterator = handleExit();
+            } else {
+                System.out.println("Invalid ID");
+            }
         }
+    }
+
+    public static void createStudent(University university){
+        boolean error = true;
+        int age;
+
+        System.out.println("Type in the student name:");
+        String name = Reader.stringScanner();
+        System.out.println("Type in the student's age:");
+        age = Reader.intScanner();
+        Student newStudent = new Student(name, age);
+        university.addStudent(newStudent);
+
+        while(error) {
+            int id;
+
+            System.out.println("These are the courses you can enroll the student in:");
+            System.out.println("  ID  |  COURSE NAME");
+            for (int i = 0; i < university.getCourseList().size(); i++){
+                System.out.println(university.getCourseList().get(i));
+            }
+            System.out.println(" ");
+            System.out.println("Type in the ID for the class you wish to enroll the student");
+            id = Reader.intScanner();
+            Course chosenCourse = university.findCourseById(id);
+            if (chosenCourse.getId() > 0){
+                chosenCourse.registerStudent(newStudent);
+                System.out.println("Student: " + newStudent.getName() + " created and enrolled successfully.");
+                error = false;
+            } else {
+                System.out.println("Invalid Course ID");
+            }
+        }
+    }
+
+    public static void seeClassesPerStudent(University university){
+        int id;
+
+        System.out.println("Type in the id of a student to see the courses they're enrolled in");
+        id = Reader.intScanner();
+
     }
 
     public static boolean handleExit(){

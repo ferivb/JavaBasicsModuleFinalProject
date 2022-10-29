@@ -105,4 +105,11 @@ public class University {
         return course;
     }
 
+    public boolean confirmStudentEnrolled(int id, int index){
+        boolean enrolled = false;
+        if (this.courseList.get(index).confirmIfEnrolled(id)){
+            enrolled = true;
+        }
+        return enrolled;
+    }
 }

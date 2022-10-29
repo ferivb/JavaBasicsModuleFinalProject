@@ -100,6 +100,16 @@ public class Course {
         return this.professor.getFirstName() + " " + this.professor.getLastName();
     }
 
+    public boolean confirmIfEnrolled(int id){
+        boolean found = false;
+        for (int i = 0; i < this.registeredStudents.size(); i++){
+            if (this.registeredStudents.get(i).getId() == id){
+                found = true;
+            }
+        }
+        return found;
+    }
+
     @Override
     public String toString() {
         return "   " + this.id + "  |  " + this.name;
