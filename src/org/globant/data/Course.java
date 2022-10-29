@@ -23,21 +23,26 @@ public class Course {
 
     // --------------- GETTERS ------------------
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return this.id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return this.name;
     }
 
-    public void setClassroom(int classroom) {
-        this.classroom = classroom;
+    public int getClassroom() {
+        return this.classroom;
     }
 
-    public void setRegisteredStudents(List<Student> registeredStudents) {
-        this.registeredStudents = registeredStudents;
+    public List<Student> getRegisteredStudents() {
+        return this.registeredStudents;
     }
+
+    public Professor getProfessor() {
+        return this.professor;
+    }
+
 
     // --------------- SETTERS ------------------
 
@@ -61,5 +66,9 @@ public class Course {
         }
 
         return success;
+    }
+
+    public int retrieveProfessorId(){
+        return this.professor.getId();
     }
 }
