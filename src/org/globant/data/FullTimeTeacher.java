@@ -14,4 +14,14 @@ public class FullTimeTeacher extends Professor{
     public double calculateRealSalary() {
         return this.baseSalary * (this.experienceYears * 1.1);
     }
+
+    @Override
+    public String toString() {
+        double salary = this.calculateRealSalary();
+        return " " + this.id + "\t\t" +
+                "\t | " + this.firstName + " " + this.lastName + "\t" +
+                "\t | " + this.email + "\t" +
+                "\t | " + this.typeOfContract + "\t" +
+                "\t | $" + salary;
+    }
 }
