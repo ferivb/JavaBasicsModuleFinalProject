@@ -18,10 +18,10 @@ public class PartTimeTeacher extends Professor{
     @Override
     public String toString() {
         double salary = this.calculateRealSalary();
-        return " " + this.id + "\t\t" +
-                "\t | " + this.firstName + " " + this.lastName + "\t" +
-                "\t | " + this.email + "\t" +
-                "\t | " + this.typeOfContract + "\t" +
-                "\t | $" + salary;
+        return "  " + this.id + "  " +
+                " |\t  " + this.firstName + " " + this.lastName + "\t" +
+                " |\t " + this.email + "\t" +
+                " |\t " + this.typeOfContract + "\t" +
+                " |\t $" + salary;
     }
 }

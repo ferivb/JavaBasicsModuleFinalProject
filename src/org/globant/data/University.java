@@ -1,5 +1,6 @@
 package org.globant.data;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,21 @@ public class University {
         this.studentList = new ArrayList<Student>();
         this.courseList = new ArrayList<Course>();
     }
+
+    // --------------- GETTERS --------------------
+
+    public List<Professor> getTeacherList() {
+        return teacherList;
+    }
+
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
 
     // --------------- METHODS --------------------
 
@@ -41,7 +57,7 @@ public class University {
         Professor.resetCounter();
         professor.setId(-1);
 
-        if (id > 0 && id < teacherList.size()) {
+        if (id > 0 && id <= teacherList.size()) {
             for (Professor value : teacherList) {
                 if (value.getId() == id) {
                     professor = value;
@@ -64,7 +80,14 @@ public class University {
                 }
             }
         }
-
         return student;
+    }
+
+    public int retrieveProfessorIdFromCourseList(int index){
+        return courseList.get(index).retrieveProfessorId();
+    }
+
+    public String retrieveCourseName(int index){
+        return courseList.get(index).getName();
     }
 }

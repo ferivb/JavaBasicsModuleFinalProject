@@ -48,7 +48,7 @@ public class DataInitializer {
         course3.registerStudent(university.findStudentById(5));
         course3.registerStudent(university.findStudentById(6));
         Course course4 = new Course("Advanced Candle Making", 415);
-        course4.setProfessor(university.findProfessorById(2));
+        course4.setProfessor(university.findProfessorById(1));
         course4.registerStudent(university.findStudentById(5));
         course4.registerStudent(university.findStudentById(6));
         university.addCourse(course1);

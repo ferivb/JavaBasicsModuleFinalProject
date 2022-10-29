@@ -14,17 +14,17 @@ public class Reader {
         }
     }
 
-    public static float floatScanner(){
+    public static double doubleScanner(){
         try {
             Scanner scan = new Scanner(System.in);
-            return scan.nextFloat();
+            return scan.nextDouble();
         } catch (java.util.InputMismatchException e){
             System.out.println("Invalid input, please input a number without symbols");
             return -1;
         }
     }
 
-    public static String StringScanner(){
+    public static String stringScanner(){
         Scanner scan = new Scanner(System.in);
         return scan.nextLine();
     }
