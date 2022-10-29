@@ -1,6 +1,5 @@
 package org.globant.data;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,14 +67,14 @@ public class University {
         return professor;
     }
 
-    public Student findStudentById(int id){
+    public Student findStudentInUniversity(int studentId){
         Student student = new Student("null", 0);
         student.setId(-1);
         Student.resetCounter();
 
-        if (id > 0 && id < studentList.size()){
+        if (studentId > 0 && studentId <= studentList.size()){
             for (Student value : studentList) {
-                if (value.getId() == id) {
+                if (value.getId() == studentId) {
                     student = value;
                 }
             }
@@ -90,4 +89,20 @@ public class University {
     public String retrieveCourseName(int index){
         return courseList.get(index).getName();
     }
+
+    public Course findCourseById(int id){
+        Course course = new Course("null", -1);
+        course.setId(-1);
+        Course.resetCounter();
+
+        if (id > 0 && id <= courseList.size()){
+            for (Course value : courseList){
+                if(value.getId() == id){
+                    course = value;
+                }
+            }
+        }
+        return course;
+    }
+
 }

@@ -38,4 +38,9 @@ public class Student {
     public static void resetCounter(){
         counter--;
     }
+
+    @Override
+    public String toString() {
+        return "   " + this.id + "  |\t" + this.name + "\t\t|\t" + this.age;
+    }
 }

@@ -37,20 +37,20 @@ public class DataInitializer {
     public static void populateCourses(University university){
         Course course1 = new Course("Forestry Psychology", 420);
         course1.setProfessor(university.findProfessorById(1));
-        course1.registerStudent(university.findStudentById(1));
-        course1.registerStudent(university.findStudentById(2));
+        course1.registerStudent(university.findStudentInUniversity(1));
+        course1.registerStudent(university.findStudentInUniversity(2));
         Course course2 = new Course("Meme History I", 69);
         course2.setProfessor(university.findProfessorById(2));
-        course2.registerStudent(university.findStudentById(3));
-        course2.registerStudent(university.findStudentById(4));
+        course2.registerStudent(university.findStudentInUniversity(3));
+        course2.registerStudent(university.findStudentInUniversity(4));
         Course course3 = new Course("Funk Dancing for Self Defense", 411);
         course3.setProfessor(university.findProfessorById(2));
-        course3.registerStudent(university.findStudentById(5));
-        course3.registerStudent(university.findStudentById(6));
+        course3.registerStudent(university.findStudentInUniversity(5));
+        course3.registerStudent(university.findStudentInUniversity(6));
         Course course4 = new Course("Advanced Candle Making", 415);
         course4.setProfessor(university.findProfessorById(1));
-        course4.registerStudent(university.findStudentById(5));
-        course4.registerStudent(university.findStudentById(6));
+        course4.registerStudent(university.findStudentInUniversity(5));
+        course4.registerStudent(university.findStudentInUniversity(6));
         university.addCourse(course1);
         university.addCourse(course2);
         university.addCourse(course3);

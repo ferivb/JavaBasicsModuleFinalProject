@@ -56,7 +56,24 @@ public class Course {
         return success;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setClassroom(int classroom) {
+        this.classroom = classroom;
+    }
+
     // ---------------- METHODS -----------------
+
+    public static void resetCounter(){
+        counter--;
+    }
+
 
     public boolean registerStudent(Student student){
         boolean success = false;
@@ -64,11 +81,27 @@ public class Course {
             success = true;
             this.registeredStudents.add(student);
         }
-
         return success;
     }
 
     public int retrieveProfessorId(){
         return this.professor.getId();
+    }
+
+    public String retrieveStudentName(int index){
+        String result = "No students are registered in this class.";
+        if (registeredStudents.size() > 0){
+            result = registeredStudents.get(index).getName();
+        }
+        return result;
+    }
+
+    public String retrieveProfessorName(){
+        return this.professor.getFirstName() + " " + this.professor.getLastName();
+    }
+
+    @Override
+    public String toString() {
+        return "   " + this.id + "  |  " + this.name;
     }
 }
