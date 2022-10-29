@@ -6,10 +6,10 @@ public abstract class Professor {
 
     private static int counter = 1;
 
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String email;
+    protected int id;
+    protected String firstName;
+    protected String lastName;
+    protected String email;
     protected double baseSalary;
     protected String typeOfContract;
     // protected List<Course> courses;  ---------- CREATE A METHOD FOR THIS -----------

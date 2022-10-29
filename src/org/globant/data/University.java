@@ -17,6 +17,8 @@ public class University {
         this.courseList = new ArrayList<Course>();
     }
 
+    // --------------- METHODS --------------------
+
     public void addProfessor(Professor professor){
         this.teacherList.add(professor);
     }

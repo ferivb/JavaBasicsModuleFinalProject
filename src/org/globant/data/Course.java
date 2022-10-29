@@ -1,5 +1,6 @@
 package org.globant.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
@@ -17,6 +18,7 @@ public class Course {
         counter++;
         this.name = name;
         this.classroom = classroom;
+        this.registeredStudents = new ArrayList<Student>();
     }
 
     // --------------- GETTERS ------------------
@@ -55,6 +57,7 @@ public class Course {
         boolean success = false;
         if(student.getId() > 0 && !this.registeredStudents.contains(student)){
             success = true;
+            this.registeredStudents.add(student);
         }
 
         return success;
