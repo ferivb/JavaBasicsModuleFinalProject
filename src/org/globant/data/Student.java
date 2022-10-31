@@ -25,10 +25,6 @@ public class Student {
         return name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
     // ------------ SETTERS --------------
 
     public void setId(int id) {

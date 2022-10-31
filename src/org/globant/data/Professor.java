@@ -1,6 +1,5 @@
 package org.globant.data;
 
-import java.util.List;
 
 public abstract class Professor {
 
@@ -11,8 +10,6 @@ public abstract class Professor {
     protected String lastName;
     protected String email;
     protected double baseSalary;
-    protected String typeOfContract;
-    // protected List<Course> courses;  ---------- CREATE A METHOD FOR THIS -----------
 
 
     public Professor(String firstName, String lastName, double baseSalary) {
@@ -40,39 +37,19 @@ public abstract class Professor {
 
     public String getEmail() {
         return this.email;
-    }
-
-    public String getTypeOfContract() {
-        return this.typeOfContract;
-    }
+    } // check this later
 
     // -------------- SETTERS --------------
 
     public void setId(int id) {
         this.id = id;
-    }
-
-//    public List<Course> getCourses() {
-//        return this.courses;
-//    }
+    }  // make a constructor for this
 
     // ------------ METHODS -------------
 
     public static void resetCounter(){
         counter--;
     }
-    public abstract double calculateRealSalary();
-
-//    public void addCourseToList(Course course){
-//        this.courses.add(course);
-//    }
-//
-//    public Course findCourse(int index){
-//        return this.courses.get(index);
-//    }
-//
-//    public void removeFromCourses(int index){
-//        this.courses.remove(index);
-//    }
+    public abstract double calculateRealSalary(); // make a constructor for this
 
 }

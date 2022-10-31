@@ -39,11 +39,6 @@ public class Course {
         return this.registeredStudents;
     }
 
-    public Professor getProfessor() {
-        return this.professor;
-    }
-
-
     // --------------- SETTERS ------------------
 
     public boolean setProfessor(Professor professor) {
@@ -52,13 +47,12 @@ public class Course {
             this.professor = professor;
             success = true;
         }
-
         return success;
-    }
+    }   // ------------------------------ fix this
 
     public void setId(int id) {
         this.id = id;
-    }
+    }  // --------------------------------- another constructor
 
     public void setName(String name) {
         this.name = name;
@@ -72,7 +66,7 @@ public class Course {
 
     public static void resetCounter(){
         counter--;
-    }
+    } // -------------------- another constructor
 
 
     public boolean registerStudent(Student student){
@@ -82,7 +76,7 @@ public class Course {
             this.registeredStudents.add(student);
         }
         return success;
-    }
+    }   // ------------------------------   student.getId() > 0  This should go in main
 
     public int retrieveProfessorId(){
         return this.professor.getId();
@@ -100,7 +94,7 @@ public class Course {
         return this.professor.getFirstName() + " " + this.professor.getLastName();
     }
 
-    public boolean confirmIfEnrolled(int id){
+    public boolean confirmIfStudentEnrolled(int id){
         boolean found = false;
         for (int i = 0; i < this.registeredStudents.size(); i++){
             if (this.registeredStudents.get(i).getId() == id){
