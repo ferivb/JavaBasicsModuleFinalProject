@@ -52,7 +52,7 @@ public class University {
             public double calculateRealSalary() {
                 return 0;
             }
-        };
+        }; // ----------------------------------------- create a null professor
         Professor.resetCounter();
         professor.setId(-1);
 
@@ -63,13 +63,12 @@ public class University {
                 }
             }
         }
-
         return professor;
     }
 
-    public Student findStudentInUniversity(int studentId){
+    public Student findStudent(int studentId){
         Student student = new Student("null", 0);
-        student.setId(-1);
+        student.setId(-1);  // ------------------- constructor for this
         Student.resetCounter();
 
         if (studentId > 0 && studentId <= studentList.size()){
@@ -92,7 +91,7 @@ public class University {
 
     public Course findCourseById(int id){
         Course course = new Course("null", -1);
-        course.setId(-1);
+        course.setId(-1); // ----------------------- constructor for this
         Course.resetCounter();
 
         if (id > 0 && id <= courseList.size()){
@@ -105,9 +104,9 @@ public class University {
         return course;
     }
 
-    public boolean confirmStudentEnrolled(int id, int index){
+    public boolean isStudentEnrolled(int id, int index){
         boolean enrolled = false;
-        if (this.courseList.get(index).confirmIfEnrolled(id)){
+        if (this.courseList.get(index).confirmIfStudentEnrolled(id)){
             enrolled = true;
         }
         return enrolled;

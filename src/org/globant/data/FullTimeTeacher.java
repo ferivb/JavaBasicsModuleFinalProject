@@ -7,7 +7,6 @@ public class FullTimeTeacher extends Professor{
     public FullTimeTeacher(String firstName, String lastName, double baseSalary, int experience) {
         super(firstName, lastName, baseSalary);
         this.experienceYears = experience;
-        this.typeOfContract = "FullTime";
     }
 
     @Override
@@ -21,7 +20,7 @@ public class FullTimeTeacher extends Professor{
         return "  " + this.id + "  " +
                 " |\t  " + this.firstName + " " + this.lastName + "\t" +
                 " |\t " + this.email + "\t" +
-                " |\t " + this.typeOfContract + "\t" +
+                " |\t " + "Full-time" + "\t" +
                 " |\t $" + salary;
     }
 }

@@ -37,6 +37,7 @@ public class Main {
                     break;
                 default:
                     handleInvalidOption();
+                    break;
             }
         }
     }
@@ -70,6 +71,7 @@ public class Main {
                     break;
                 default:
                     handleInvalidOption();
+                    break;
             }
         }
     }
@@ -100,14 +102,14 @@ public class Main {
             System.out.println(" 1. Full-Time  |  2. Part-Time");
             int option = Reader.intScanner();
             switch (option) {
-                case 1:
+                case 1:   // ------------------------ make a method
                     System.out.println("Please type in this teacher's experience in years:");
                     int experience = Reader.intScanner();
                     FullTimeTeacher fullTimeTeacher = new FullTimeTeacher(firstName, lastName, baseSalary, experience);
                     university.addProfessor(fullTimeTeacher);
                     error = false;
                     break;
-                case 2:
+                case 2:  // ------------------------ make a method
                     System.out.println("How many hours a week will this teacher work?");
                     int activeHours = Reader.intScanner();
                     PartTimeTeacher partTimeTeacher = new PartTimeTeacher(firstName, lastName, baseSalary, activeHours);
@@ -116,6 +118,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("invalid option");
+                    break;
             }
         }
         System.out.println(" ");
@@ -167,12 +170,14 @@ public class Main {
                     break;
                 default:
                     handleInvalidOption();
+                    break;
             }
         }
     }
 
     public static void listCourses(University university){
         boolean iterator = true;
+
         System.out.println("  ID  |  COURSE NAME");
         if (university.getCourseList().size() > 0){
             for (int i = 0; i < university.getCourseList().size(); i++){
@@ -218,6 +223,7 @@ public class Main {
                                     break;
                                 default:
                                     handleInvalidOption();
+                                    break;
                             }
                         }
                     } else {
@@ -265,6 +271,7 @@ public class Main {
 
     public static void enrollStudents(University university, Course course){
         int id = 1;
+
         while (id != 0){
             System.out.println("List of registered students:");
             System.out.println("  ID  |\t\tNAME\t\t|\tAGE");
@@ -274,7 +281,7 @@ public class Main {
             System.out.println(" ");
             System.out.println("Type the ID of the student you wish to enroll or 0 to go back");
             id = Reader.intScanner();
-            if (course.registerStudent(university.findStudentInUniversity(id))){
+            if (course.registerStudent(university.findStudent(id))){
                 System.out.println("Student enrolled in course.");
                 System.out.println("You can enroll another Student.");
             } else {
@@ -323,6 +330,7 @@ public class Main {
                     break;
                 default:
                     handleInvalidOption();
+                    break;
             }
         }
     }
@@ -333,6 +341,7 @@ public class Main {
         while(iterator){
             int id;
             int counter = 0;
+
             System.out.println("  ID  |\t\tNAME\t\t|\tAGE");
             for(int i = 0; i < university.getStudentList().size(); i++){
                 System.out.println(university.getStudentList().get(i));
@@ -341,7 +350,7 @@ public class Main {
             id = Reader.intScanner();
             if (id > 0 && id <= university.getStudentList().size()){
                 for (int i = 0; i < university.getCourseList().size(); i++){
-                    if (university.confirmStudentEnrolled(id, i)){
+                    if (university.isStudentEnrolled(id, i)){
                         System.out.println(university.getCourseList().get(i).getName());
                         counter++;
                     }
@@ -390,14 +399,6 @@ public class Main {
         }
     }
 
-    public static void seeClassesPerStudent(University university){
-        int id;
-
-        System.out.println("Type in the id of a student to see the courses they're enrolled in");
-        id = Reader.intScanner();
-
-    }
-
     public static boolean handleExit(){
         System.out.println("Leaving this menu.");
         return false;
@@ -407,6 +408,5 @@ public class Main {
         System.out.println("Invalid option");
         System.out.println("Please choose the number of the option you wish to take.");
     }
-
 
 }
